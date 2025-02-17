@@ -6,7 +6,7 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/17 13:05:56 by tfournie         ###   ########.fr        #
+#    Updated: 2025/02/17 16:08:16 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ NAME = push_swap
 
 SRC = push_swap.c\
 	  push_swap_utils.c \
-	  push_swap_inst_1.c \
-	  push_swap_inst_2.c
+	  push_swap_inst.c \
 
 OBJ = $(SRC:.c=.o)
 
