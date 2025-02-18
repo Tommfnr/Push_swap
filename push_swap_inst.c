@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:49 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/18 19:58:06 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:57:21 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,46 +17,43 @@
 #include <stdlib.h>
 #include <string.h>
 
-//inst = instuction
-
 //sa , sb , ss = ft_swap
-char *ft_swap(int long *stack_a, int long *stack_b, char *inst)
+char *ft_swap_ab(int long *stack_a, int long *stack_b, int inst)
 {
-    int temp;
+    int long temp;
 
-    if (strncmp(inst, "sa", 2) == 0)
+    if (inst == 0 && stack_a && stack_a[1] != (long) INT_MAX + 1)
     {
-        if (stack_a && stack_a[1] != 0) { // Vérifier que stack_a contient au moins 2 éléments
-            temp = stack_a[0];
-            stack_a[0] = stack_a[1];
-            stack_a[1] = temp;
-        }
+        temp = stack_a[0];
+        stack_a[0] = stack_a[1];
+        stack_a[1] = temp;
         return ("sa");
     }
-    if (strncmp(inst, "sb", 2) == 0)
+    if (inst == 1 && stack_b && stack_b[1] != (long) INT_MAX + 1)
     {
-        if (stack_b && stack_b[1] != 0)// Vérifier que stack_b contient au moins 2 éléments
-        { 
-            temp = stack_b[0];
-            stack_b[0] = stack_b[1];
-            stack_b[1] = temp;
-        }
+        temp = stack_b[0];
+        stack_b[0] = stack_b[1];
+        stack_b[1] = temp;
         return ("sb");
     }
-    if (strncmp(inst, "ss", 2) == 0)
+    return (NULL);
+}
+
+char *ft_swap_ss(int long *stack_a, int long *stack_b)
+{
+    int long    temp;
+    int long    max;
+    
+    max = (long) INT_MAX + 1;
+    if (stack_a && stack_a[1] != max && stack_b && stack_b[1] != max)
     {
-        if (stack_a && stack_a[1] != 0)// Vérifier que stack_a contient au moins 2 éléments
-        {
-            temp = stack_a[0];
-            stack_a[0] = stack_a[1];
-            stack_a[1] = temp;
-        }
-        if (stack_b && stack_b[1] != 0)// Vérifier que stack_b contient au moins 2 éléments
-        {
-            temp = stack_b[0];
-            stack_b[0] = stack_b[1];
-            stack_b[1] = temp;
-        }
+
+        temp = stack_a[0];
+        stack_a[0] = stack_a[1];
+        stack_a[1] = temp;
+        temp = stack_b[0];
+        stack_b[0] = stack_b[1];
+        stack_b[1] = temp;
         return ("ss");
     }
     return (NULL);
@@ -71,7 +68,7 @@ char	*ft_push_pa(int long *stack_a, int long *stack_b, int argc)
     int     size_b;
 
     i = 0;
-    if (stack_b)// Vérifier que stack_b n'est pas vide
+    if (stack_b[0] != (long) INT_MAX + 1)
     {
         size_b = ft_size(argc, &stack_a, &stack_b, 1);
         size_a = ft_size(argc, &stack_a, &stack_b, 0);
@@ -95,7 +92,7 @@ char	*ft_push_pa(int long *stack_a, int long *stack_b, int argc)
         stack_b[size_b - 1] = (long) INT_MAX + 1;
         return ("pb");
     }
-    return NULL;
+    return (NULL);
 }
 
 char	*ft_push_pb(int long *stack_a, int long *stack_b, int argc)
@@ -106,7 +103,7 @@ char	*ft_push_pb(int long *stack_a, int long *stack_b, int argc)
     int     size_b;
 
     i = 0;
-    if (stack_a)// Vérifier que stack_a n'est pas vide
+    if (stack_a[0] != (long) INT_MAX + 1)
     {
         size_b = ft_size(argc, &stack_a, &stack_b, 1);
         size_a = ft_size(argc, &stack_a, &stack_b, 0);
@@ -130,11 +127,11 @@ char	*ft_push_pb(int long *stack_a, int long *stack_b, int argc)
         stack_a[size_a - 1] = (long) INT_MAX + 1;
         return ("pb");
     }
-    return NULL;
+    return (NULL);
 }
 
 //ra , rb , rr= ft_rotate
-char	*ft_rotate_ab(int long *stack_a, int long *stack_b, int argc, char *inst)
+char	*ft_rotate_ab(int long *stack_a, int long *stack_b, int argc, int inst)
 {
     int long    temp;
     int         i;
@@ -142,10 +139,9 @@ char	*ft_rotate_ab(int long *stack_a, int long *stack_b, int argc, char *inst)
     int         size_b;
     
     i = 0;
-    size_a = ft_size(argc, &stack_a, &stack_b, 0);
-    size_b = ft_size(argc, &stack_a, &stack_b, 1);
-    if (strncmp(inst, "ra", 2) == 0 && stack_a && stack_a[1] != 0)
+    if (inst == 0 && stack_a && stack_a[1] != 0)
     {
+        size_a = ft_size(argc, &stack_a, &stack_b, 0);
         temp = stack_a[0];
         while (i < size_a)
         {
@@ -155,8 +151,9 @@ char	*ft_rotate_ab(int long *stack_a, int long *stack_b, int argc, char *inst)
         stack_a[size_a - 1] = temp;
         return ("ra");
     }
-    if (strncmp(inst, "rb", 2) == 0 && stack_b && stack_b[1] != 0)
+    if (inst == 1 && stack_b && stack_b[1] != 0)
     {
+        size_b = ft_size(argc, &stack_a, &stack_b, 1);
         temp = stack_b[0];
         while (i < size_b)
         {
