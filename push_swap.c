@@ -6,68 +6,106 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:38 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/17 18:03:27 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:57:08 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-int		init_stack(int len_a, char **lst,int **stack_a,int **stack_b)//recup la chaine et creer la stack_b calcule taille et regarde les erreurs
+int		init_stack(int argc, char **argv, int long**stack_a, int long**stack_b)//recup la chaine et creer la stack_b calcule taille et regarde les erreurs
 {
 	int		i;
 
-	i = 1;
-	*stack_a = malloc((len_a - 1) * sizeof(int));
+	i = 0;
+	*stack_a = malloc((argc) * sizeof(int long));
 	if (!*stack_a)
 		return (-1);
-	*stack_b = malloc((len_a - 1) * sizeof(int));
-	if (!*stack_a)
+	*stack_b = malloc((argc) * sizeof(int long));
+	if (!*stack_b)
 	{
 		free(stack_a);
 		return (-1);
 	}
-	while (i < len_a)
+	while (i < argc)
 	{
-		(*stack_a)[i - 1] = ft_atoi(lst[i]);
-		ft_printf("%d\n",(*stack_a)[i - 1]);
+		(*stack_a)[i] = atoi(argv[i + 1]);
+		// ft_printf("%d\n",(*stack_a)[i - 1]);
 		i++;
 	}
-	// stack_b = {0};
-	return (len_a - 1);
+	i = 0;
+	while (i < argc)
+	{
+		(*stack_b)[i] = (long) INT_MAX + 1;
+		// ft_printf("%d\n",(*stack_a)[i - 1]);
+		i++;
+	}
+	return (argc);
+}
+
+int	ft_size(int argc, int long **stack_a, int long **stack_b, int witch) // 0 = a et 1 = b
+{
+	size_t	size;
+	int		i;
+
+	size = 0;
+	i = 0;
+	if (witch == 0)
+	{
+		while (i < argc)
+		{
+			if ((*stack_a)[size] != (long) INT_MAX + 1)
+				size++;
+			i++;
+		}
+		return (size);
+	}
+	if (witch == 1)
+	{
+		while (i < argc)
+		{
+			if ((*stack_b)[size] != (long) INT_MAX + 1)
+				size++;
+			i++;
+		}
+		return (size);
+	}
+	return (-1);
 }
 
 int	main(int argc, char *argv[])
 {
-	int		*stack_a;
-	int		*stack_b;
-	int		len_a;
+	int	long	*stack_a;
+	int	long	*stack_b;
 	int		i = 0;
+	int		test = 0;
 	
-	len_a = init_stack(argc, argv, &stack_a, &stack_b);
-	ft_printf("\n");
-	ft_swap(stack_a, stack_b, "sa");
-	while (i < len_a)
+	argc--;
+	init_stack(argc, argv, &stack_a, &stack_b);
+	while (i < argc)
 	{
-		ft_printf("%d\n", stack_a[i]);
+		printf("%ld   %ld\n", stack_a[i], stack_b[i]);
 		i++;
+	}
+	ft_push_pb(stack_a, stack_b, argc);
+	ft_push_pb(stack_a, stack_b, argc);
+	while (test < 1) //combien d'instruction
+	{
+		// printf("\n%d\n\n", size(argc, &stack_a, &stack_b, 0));
+		// ft_swap(stack_a, stack_b, "sa");
+		printf("\n%s\n",ft_reverse_rotate_rrr(stack_a, stack_b, argc));
+		i = 0;
+		while (i < argc)
+		{
+			printf("< %ld | %ld >\n", stack_a[i], stack_b[i]);
+			i++;
+		}
+		test++;
 	}
 	free(stack_a);
 	free(stack_b);
 	return (0);
 }
-
-
-// int	main(void)
-// {
-// 	int		list[] = {12,55,44,468,1,20,5,-2};
-// 	int		i = 0;
-// 	int		len = sizeof(list)/sizeof(int);
-// 	//ft_tri(list, len);
-	
-// 	while (i < len)
-// 	{
-// 		ft_printf("trier: %d\n",list[i]);
-// 		i++;
-// 	}
-// 	return (0);	
-// }
