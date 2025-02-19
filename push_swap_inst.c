@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:49 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/18 20:57:21 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:13:07 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include <string.h>
 
 //sa , sb , ss = ft_swap
-char *ft_swap_ab(int long *stack_a, int long *stack_b, int inst)
+char *ft_swap_ab(long *stack_a, long *stack_b, int inst)// 0 = a | 1 =b
 {
-    int long temp;
+    long temp;
 
     if (inst == 0 && stack_a && stack_a[1] != (long) INT_MAX + 1)
     {
@@ -39,10 +39,10 @@ char *ft_swap_ab(int long *stack_a, int long *stack_b, int inst)
     return (NULL);
 }
 
-char *ft_swap_ss(int long *stack_a, int long *stack_b)
+char *ft_swap_ss(long *stack_a, long *stack_b)
 {
-    int long    temp;
-    int long    max;
+    long    temp;
+    long    max;
     
     max = (long) INT_MAX + 1;
     if (stack_a && stack_a[1] != max && stack_b && stack_b[1] != max)
@@ -60,9 +60,9 @@ char *ft_swap_ss(int long *stack_a, int long *stack_b)
 }
 
 //pa , pb = ft_push
-char	*ft_push_pa(int long *stack_a, int long *stack_b, int argc)
+char	*ft_push_pa(long *stack_a, long *stack_b, int argc)
 {
-    int long    temp;
+    long    temp;
     int     i;
     int     size_a;
     int     size_b;
@@ -95,9 +95,9 @@ char	*ft_push_pa(int long *stack_a, int long *stack_b, int argc)
     return (NULL);
 }
 
-char	*ft_push_pb(int long *stack_a, int long *stack_b, int argc)
+char	*ft_push_pb(long *stack_a, long *stack_b, int argc)
 {
-    int long    temp;
+    long    temp;
     int     i;
     int     size_a;
     int     size_b;
@@ -131,9 +131,9 @@ char	*ft_push_pb(int long *stack_a, int long *stack_b, int argc)
 }
 
 //ra , rb , rr= ft_rotate
-char	*ft_rotate_ab(int long *stack_a, int long *stack_b, int argc, int inst)
+char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
 {
-    int long    temp;
+    long    temp;
     int         i;
     int         size_a;
     int         size_b;
@@ -166,9 +166,9 @@ char	*ft_rotate_ab(int long *stack_a, int long *stack_b, int argc, int inst)
     return (NULL);
 }
 
-char    *ft_rotate_rr(int long *stack_a, int long *stack_b, int argc)
+char    *ft_rotate_rr(long *stack_a, long *stack_b, int argc)
 {
-    int long    temp;
+    long    temp;
     int         i;
     int         size_a;
     int         size_b;
@@ -199,16 +199,16 @@ char    *ft_rotate_rr(int long *stack_a, int long *stack_b, int argc)
 }
 
 //rra , rrb , rrr = ft_reverse
-char	*ft_reverse_rotate_ab(int long *stack_a, int long *stack_b, int argc, char *inst)
+char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)// 0 = a | 1 = b
 {
-    int long    temp;
+    long    temp;
     int         i;
     int         size_a;
     int         size_b;
     
     size_a = ft_size(argc, &stack_a, &stack_b, 0);
     size_b = ft_size(argc, &stack_a, &stack_b, 1);
-    if (strncmp(inst, "rra", 3) == 0 && stack_a && stack_a[1] != 0)
+    if (inst == 0 && stack_a && stack_a[1] != 0)
     {
         i = size_a - 1;
         temp = stack_a[size_a - 1];
@@ -220,7 +220,7 @@ char	*ft_reverse_rotate_ab(int long *stack_a, int long *stack_b, int argc, char 
         stack_a[0] = temp;
         return ("rra");
     }
-    if (strncmp(inst, "rrb", 3) == 0 && stack_b && stack_b[1] != 0)
+    if (inst == 1 && stack_b && stack_b[1] != 0)
     {
         i = size_b - 1;
         temp = stack_b[size_b - 1];
@@ -235,9 +235,9 @@ char	*ft_reverse_rotate_ab(int long *stack_a, int long *stack_b, int argc, char 
     return (NULL);
 }
 
-char	*ft_reverse_rotate_rrr(int long *stack_a, int long *stack_b, int argc)
+char	*ft_reverse_rotate_rrr(long *stack_a, long *stack_b, int argc)
 {
-    int long    temp;
+    long    temp;
     int         i;
     int         size_a;
     int         size_b;

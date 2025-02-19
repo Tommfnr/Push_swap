@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:38 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/18 21:33:57 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:06:17 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,30 @@ int	main(int argc, char *argv[])
 	if (ft_check_error(argc, argv) == NULL)
 		return (0);
 	argc--;
-	ft_init_stack(argc, argv, &stack_a, &stack_b);
+	if (ft_init_stack(argc, argv, &stack_a, &stack_b) == -1)
+		return (1);
+	printf("\n");
 	while (i < argc)
 	{
 		printf("%ld   %ld\n", stack_a[i], stack_b[i]);
 		i++;
 	}
+	ft_algo_sort(stack_a, stack_b, argc);
+	i = 0;
+	while (i < argc)
+	{
+		printf("%ld   %ld\n", stack_a[i], stack_b[i]);
+		i++;
+	}
+	if (!ft_stack_sorted(stack_a, argc))
+		return (0);
+	i = 0;
+	// while (i < argc)
+	// {
+	// 	printf("%ld   %ld\n", stack_a[i], stack_b[i]);
+	// 	i++;
+	// }
+	// ft_random();
 	// ft_swap_ab(stack_a, stack_b, 0);
 	// ft_push_pb(stack_a, stack_b, argc);
 	// ft_push_pb(stack_a, stack_b, argc);
@@ -60,12 +78,12 @@ int	main(int argc, char *argv[])
 	// 	test++;
 	// }
 	i = 0;
-	printf("\n");
-	while (i < argc)
-	{
-		printf("%ld   %ld\n", stack_a[i], stack_b[i]);
-		i++;
-	}
+	// printf("\n");
+	// while (i < argc)
+	// {
+	// 	printf("%ld   %ld\n", stack_a[i], stack_b[i]);
+	// 	i++;
+	// }
 	free(stack_a);
 	free(stack_b);
 	return (0);
