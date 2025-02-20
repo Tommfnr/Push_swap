@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/19 18:13:30 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:38:06 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,13 @@ int 	ft_check_doublon(int argc, char **argv);
 int 	ft_isnumber(const char *str);
 int		ft_size(int argc, long **stack_a, long **stack_b, int witch);
 int		ft_init_stack(int argc, char **argv, long **stack_a, long **stack_b);
+
+
+//algo
+
+int  ft_countc_aup_bup(long stack_a, long stack_b, int argc);
+// int  ft_countc_aup_bdown(long stack_a, long stack_b, int argc);
+// int  ft_countc_adown_bup(long stack_a, long stack_b, int argc);
+// int  ft_countc_adown_bdown (long stack_a, long stack_b, int argc);
 
 #endif

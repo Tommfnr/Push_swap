@@ -1,0 +1,36 @@
+algo_cost_utils.c
+
+int  ft_find_good_place_a
+int  ft_find_good_place_b (stack_a, stack_b, argc, element) renvoie un int qui est la place que element dois avoir
+
+algo_cost_ab.c
+
+int  ft_countc_aup_bup      
+int  ft_countc_aup_bdown
+int  ft_countc_adown_bup
+int  ft_countc_adown_bdown  
+
+
+algo_cost.c
+
+char  *ft_count_cost_element
+char  **ft_count_cost_stack   avec double tableau 4*nb_element (4 pour chaque ft_)  renvoie doube tableau
+
+
+algo.c
+
+int *ft_find_lcost  renvoie un pointeur qui pointe vers l'addresse de l'element a deplacer 
+
+
+algo_do.c
+
+void  ft_do_aup_bup      PS: bien pesnser rr
+void  ft_do_aup_bdown
+void  ft_do_adown_bup
+void  ft_do_adown_bdown  PS: bien pesnser rrr
+
+
+
+PS: bien verifier si la liste est trier (il ne faut pas forcement organiser)
+
+

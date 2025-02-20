@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:38 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/19 18:06:17 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/20 20:03:35 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int	main(int argc, char *argv[])
 {
-	int	long	*stack_a;
-	int	long	*stack_b;
+	long	*stack_a;
+	long	*stack_b;
 	int		i = 0;
 	// int		test = 0;
 	
