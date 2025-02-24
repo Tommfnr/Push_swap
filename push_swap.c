@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomm <tomm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:38 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/20 20:03:35 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/24 23:21:43 by tomm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc, char *argv[])
 	}
 	if (!ft_stack_sorted(stack_a, argc))
 		return (0);
-	i = 0;
+	// i = 0;
 	// while (i < argc)
 	// {
 	// 	printf("%ld   %ld\n", stack_a[i], stack_b[i]);
@@ -77,7 +77,7 @@ int	main(int argc, char *argv[])
 	// 	}
 	// 	test++;
 	// }
-	i = 0;
+	// i = 0;
 	// printf("\n");
 	// while (i < argc)
 	// {

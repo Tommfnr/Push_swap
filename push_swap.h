@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomm <tomm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/24 18:22:15 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:59:35 by tomm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_algo_sort(long *stack_a, long *stack_b, int argc);
 void 	ft_sort_three(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_max_b(long *stack_a, long *stack_b, int argc);
+long	*ft_find_indx_min_a(long *stack_a, long *stack_b, int argc);
 
 char 	*ft_swap_ab(long *stack_a, long *stack_b, int inst);
 char 	*ft_swap_ss(long *stack_a, long *stack_b);

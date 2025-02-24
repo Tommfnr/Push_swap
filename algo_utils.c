@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tomm <tomm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:34:19 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/19 17:49:47 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:59:33 by tomm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc)
 {
-	int	long	*max;
+	long	*max;
 	int			i;
 	int 		size_a;
 
@@ -32,7 +32,7 @@ long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc)
 
 long	*ft_find_indx_max_b(long *stack_a, long *stack_b, int argc)
 {
-	int	long	*max;
+	long	*max;
 	int			i;
 	int 		size_b;
 
@@ -46,4 +46,22 @@ long	*ft_find_indx_max_b(long *stack_a, long *stack_b, int argc)
 		i++;
 	}
 	return (max);
+}
+
+long	*ft_find_indx_min_a(long *stack_a, long *stack_b, int argc)
+{
+	long	*min;
+	int		i;
+	int 	size_a;
+
+	min = &stack_a[0];
+	i = 1;
+	size_a = ft_size(argc, &stack_a, &stack_b, 0);
+	while (i < size_a)
+	{
+		if (*min > stack_a[i])
+			min = &stack_a[i];
+		i++;
+	}
+	return (min);
 }
