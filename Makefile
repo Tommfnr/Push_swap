@@ -6,7 +6,7 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/20 19:17:46 by tfournie         ###   ########.fr        #
+#    Updated: 2025/02/24 18:17:53 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ SRC = push_swap.c \
 	  algo_dure.c \
 	  algo_utils.c \
 	  ft_sort.c \
+	  algo_cost_ab.c \
+	  algo_cost.c \
+	  algo_cost_ab_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

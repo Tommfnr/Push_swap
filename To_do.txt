@@ -10,6 +10,8 @@ int  ft_countc_aup_bdown
 int  ft_countc_adown_bup
 int  ft_countc_adown_bdown  
 
+PS: bien verifier si l'element est dans la liste 
+*PS: gerer le plus petit des element
 
 algo_cost.c
 
@@ -36,3 +38,4 @@ coder en dure pour 5:
 
 
 
+{{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}

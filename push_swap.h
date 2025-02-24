@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/20 19:38:06 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:22:15 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,19 @@ int		ft_init_stack(int argc, char **argv, long **stack_a, long **stack_b);
 
 //algo
 
-int  ft_countc_aup_bup(long stack_a, long stack_b, int argc);
-// int  ft_countc_aup_bdown(long stack_a, long stack_b, int argc);
-// int  ft_countc_adown_bup(long stack_a, long stack_b, int argc);
-// int  ft_countc_adown_bdown (long stack_a, long stack_b, int argc);
+int		ft_countc_aup_bup(long *stack_a, long *stack_b, int argc, long element);
+int		ft_countc_aup_bdown(long *stack_a, long *stack_b, int argc, long element);
+int		ft_countc_adown_bup(long *stack_a, long *stack_b, int argc, long element);
+int		ft_countc_adown_bdown(long *stack_a, long *stack_b, int argc, long element);
+
+int 	ft_find_good_place_bup(long *stack_a, long *stack_b, int argc, long element);
+int 	ft_find_good_place_bdown(long *stack_a, long *stack_b, int argc, long element);
+long	ft_find_max_b(long *stack_a, long *stack_b, int argc);
+
+//algo_cost
+
+void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_cost);
+void	ft_free_array(long *stack_a, long *stack_b, int argc, long **array_cost);
+void	ft_count_cost_stack(long *stack_a, long *stack_b, int argc);
 
 #endif
