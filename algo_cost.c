@@ -6,11 +6,16 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/24 18:29:42 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:29:04 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+#include <unistd.h>
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_cost)
 {
@@ -18,7 +23,7 @@ void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_
 	int		size_a;
 
 	i = 0;
-	size_a = 5;/*ft_size*/
+	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	while (i < size_a)
 	{
 		array_cost[i] = malloc(4 * sizeof(long));
@@ -48,15 +53,15 @@ void	ft_free_array(long *stack_a, long *stack_b, int argc, long **array_cost)
 	free(array_cost);
 }
 
-void	ft_count_cost_stack(long *stack_a, long *stack_b, int argc)
+long	**ft_init_array_cost(long *stack_a, long *stack_b, int argc)
 {
 	long	**array_cost;
 	int		size_a;
 
-	size_a = 5 /*ft_size(argc, stack_a, stack_b, 0)*/;
+	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	array_cost = malloc(size_a * sizeof(long *));
 	if (!array_cost)
-		return ;
+		return (0);
 	ft_count_cost_element(stack_a, stack_b, argc, array_cost);
 	for (int i = 0; i < size_a; i++) {
         for (int j = 0; j < 4; j++) {
@@ -64,6 +69,7 @@ void	ft_count_cost_stack(long *stack_a, long *stack_b, int argc)
         }
         printf("\n");
     }
+	return(array_cost);
 	ft_free_array(stack_a, stack_b, argc, array_cost);
 }
 

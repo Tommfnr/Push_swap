@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomm <tomm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/24 22:59:35 by tomm             ###   ########.fr       */
+/*   Updated: 2025/02/25 15:29:11 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int		ft_stack_sorted(long *stack_a, int argc);
 
 void	ft_algo_sort(long *stack_a, long *stack_b, int argc);
 void 	ft_sort_three(long *stack_a, long *stack_b, int argc);
+void 	ft_push_min_a(long *stack_a, long *stack_b, int argc);
+void 	ft_sort_four(long *stack_a, long *stack_b, int argc);
+void 	ft_sort_five(long *stack_a, long *stack_b, int argc);
+
 long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_max_b(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_min_a(long *stack_a, long *stack_b, int argc);
@@ -61,6 +65,6 @@ long	ft_find_max_b(long *stack_a, long *stack_b, int argc);
 
 void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_cost);
 void	ft_free_array(long *stack_a, long *stack_b, int argc, long **array_cost);
-void	ft_count_cost_stack(long *stack_a, long *stack_b, int argc);
+long		**ft_init_array_cost(long *stack_a, long *stack_b, int argc);
 
 #endif

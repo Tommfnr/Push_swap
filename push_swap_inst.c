@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:49 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/19 18:13:07 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:16:31 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <string.h>
 
 //sa , sb , ss = ft_swap
-char *ft_swap_ab(long *stack_a, long *stack_b, int inst)// 0 = a | 1 =b
+char *ft_swap_ab(long *stack_a, long *stack_b, int inst) // 0 = a | 1 =b
 {
     long temp;
 
@@ -27,6 +27,7 @@ char *ft_swap_ab(long *stack_a, long *stack_b, int inst)// 0 = a | 1 =b
         temp = stack_a[0];
         stack_a[0] = stack_a[1];
         stack_a[1] = temp;
+        ft_printf("sa\n");
         return ("sa");
     }
     if (inst == 1 && stack_b && stack_b[1] != (long) INT_MAX + 1)
@@ -34,6 +35,7 @@ char *ft_swap_ab(long *stack_a, long *stack_b, int inst)// 0 = a | 1 =b
         temp = stack_b[0];
         stack_b[0] = stack_b[1];
         stack_b[1] = temp;
+        ft_printf("sb\n");
         return ("sb");
     }
     return (NULL);
@@ -54,6 +56,7 @@ char *ft_swap_ss(long *stack_a, long *stack_b)
         temp = stack_b[0];
         stack_b[0] = stack_b[1];
         stack_b[1] = temp;
+        ft_printf("ss\n");
         return ("ss");
     }
     return (NULL);
@@ -82,15 +85,16 @@ char	*ft_push_pa(long *stack_a, long *stack_b, int argc)
         stack_a[0] = stack_b[0];
         stack_b[0] = (long) INT_MAX + 1;
         i = 0;
-        while (i < size_b)
+        while (i < size_b - 1)
         {
             temp = stack_b[i + 1];
             stack_b[i + 1] = stack_b[i];
             stack_b[i] = temp;
             i++;
         }
-        stack_b[size_b - 1] = (long) INT_MAX + 1;
-        return ("pb");
+        stack_b[size_b] = (long) INT_MAX + 1;
+        ft_printf("pa\n");
+        return ("pa");
     }
     return (NULL);
 }
@@ -107,17 +111,20 @@ char	*ft_push_pb(long *stack_a, long *stack_b, int argc)
     {
         size_b = ft_size(argc, &stack_a, &stack_b, 1);
         size_a = ft_size(argc, &stack_a, &stack_b, 0);
-        while (i < size_b)
+        if (size_b > 0)
         {
-            temp = stack_b[size_b - 1];
-            stack_b[size_b - 1] = stack_b[size_b];
-            stack_b[size_b] = temp;
-            size_b--;
+            while (i < size_b)
+            {
+                temp = stack_b[size_b - 1];
+                stack_b[size_b - 1] = stack_b[size_b];
+                stack_b[size_b] = temp;
+                size_b--;
+            }
         }
         stack_b[0] = stack_a[0];
         stack_a[0] = (long) INT_MAX + 1;
         i = 0;
-        while (i < size_a)
+        while (i < size_a - 1)
         {
             temp = stack_a[i + 1];
             stack_a[i + 1] = stack_a[i];
@@ -125,6 +132,7 @@ char	*ft_push_pb(long *stack_a, long *stack_b, int argc)
             i++;
         }
         stack_a[size_a - 1] = (long) INT_MAX + 1;
+        ft_printf("pb\n");
         return ("pb");
     }
     return (NULL);
@@ -149,6 +157,7 @@ char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
             i++;
         }
         stack_a[size_a - 1] = temp;
+        ft_printf("ra\n");
         return ("ra");
     }
     if (inst == 1 && stack_b && stack_b[1] != 0)
@@ -161,6 +170,7 @@ char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
             i++;
         }
         stack_b[size_b - 1] = temp;
+        ft_printf("rb\n");
         return ("rb");
     }
     return (NULL);
@@ -193,6 +203,7 @@ char    *ft_rotate_rr(long *stack_a, long *stack_b, int argc)
             i++;
         }
         stack_b[size_b - 1] = temp;
+        ft_printf("rr\n");
         return ("rr");
     }
     return (NULL);    
@@ -218,6 +229,7 @@ char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)// 0
             i--;
         }
         stack_a[0] = temp;
+        ft_printf("rra\n");
         return ("rra");
     }
     if (inst == 1 && stack_b && stack_b[1] != 0)
@@ -230,6 +242,7 @@ char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)// 0
             i--;
         }
         stack_b[0] = temp;
+        ft_printf("rrb\n");
         return ("rrb");
     }
     return (NULL);
@@ -262,6 +275,7 @@ char	*ft_reverse_rotate_rrr(long *stack_a, long *stack_b, int argc)
             i--;
         }
         stack_b[0] = temp;
+        ft_printf("rrr\n");
         return ("rrr");
     }
     return (NULL);

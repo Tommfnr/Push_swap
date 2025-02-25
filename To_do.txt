@@ -21,7 +21,7 @@ char  **ft_count_cost_stack   avec double tableau 4*nb_element (4 pour chaque ft
 
 algo.c
 
-int *ft_find_lcost  renvoie un pointeur qui pointe vers l'addresse de l'element a deplacer 
+int *ft_find_mmin_cost  renvoie un pointeur qui pointe vers l'addresse de l'element a deplacer 
 
 
 algo_do.c

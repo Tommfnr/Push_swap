@@ -6,18 +6,19 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/24 18:17:53 by tfournie         ###   ########.fr        #
+#    Updated: 2025/02/25 13:14:51 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I./ft_printf_42 -I./libft_git
+CFLAGS = -Wall -Wextra -Werror -g -I./ft_printf_42 -I./libft_git
 
 NAME = push_swap
 
-SRC = push_swap.c \
-	  push_swap_utils.c \
+# MAIN = push_swap.c
+
+SRC = push_swap_utils.c \
 	  push_swap_inst.c \
 	  error_check.c \
 	  algo.c \
@@ -27,6 +28,7 @@ SRC = push_swap.c \
 	  algo_cost_ab.c \
 	  algo_cost.c \
 	  algo_cost_ab_utils.c \
+	  push_swap.c \
 
 OBJ = $(SRC:.c=.o)
 
