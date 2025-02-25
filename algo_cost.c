@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 15:29:04 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:35:56 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ long	**ft_init_array_cost(long *stack_a, long *stack_b, int argc)
 	if (!array_cost)
 		return (0);
 	ft_count_cost_element(stack_a, stack_b, argc, array_cost);
-	for (int i = 0; i < size_a; i++) {
-        for (int j = 0; j < 4; j++) {
-            printf("%ld ", array_cost[i][j]);
-        }
-        printf("\n");
-    }
+	// for (int i = 0; i < size_a; i++) {
+    //     for (int j = 0; j < 4; j++) {
+    //         printf("%ld ", array_cost[i][j]);
+    //     }
+    //     printf("\n");
+    // }
 	return(array_cost);
-	ft_free_array(stack_a, stack_b, argc, array_cost);
+	// ft_free_array(stack_a, stack_b, argc, array_cost);
 }
 
 

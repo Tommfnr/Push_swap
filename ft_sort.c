@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:49:28 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 13:17:36 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:32:14 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int		ft_stack_sorted(long *stack_a, int argc)
 	{
 		if (stack_a[i] > stack_a[i + 1])
 		{
-			// printf("ce n'est pas trier prout\n");
+			printf("ce n'est pas trier prout\n");
 			return (0);
 		}
 		i++;
 	}
-	// printf("trier\n");
+	printf("trier\n");
 	return (1);
 }

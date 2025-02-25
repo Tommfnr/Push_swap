@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:16:14 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 12:50:20 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:20:32 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ void	ft_algo_sort(long *stack_a, long *stack_b, int argc)
 		else if (size_a == 4)
 			ft_sort_four(stack_a, stack_b, argc);
 		else if (size_a == 5)
-		ft_sort_five(stack_a, stack_b, argc);
+			ft_sort_five(stack_a, stack_b, argc);
+		else
+		{
+			ft_push_pb(stack_a, stack_b, argc);
+			ft_push_pb(stack_a, stack_b, argc);
+			ft_exe_algo(stack_a, stack_b, argc);
+		}
 	}
 }
 
