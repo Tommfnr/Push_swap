@@ -6,19 +6,20 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/25 17:59:28 by tfournie         ###   ########.fr        #
+#    Updated: 2025/02/26 14:00:00 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -g -I./ft_printf_42 -I./libft_git
+CFLAGS = -Wall -Wextra -Werror -g -I./printfok -I./libftok
 
 NAME = push_swap
 
 # MAIN = push_swap.c
 
-SRC = push_swap_utils.c \
+SRC = push_swap.c \
+	  push_swap_utils.c \
 	  push_swap_inst.c \
 	  error_check.c \
 	  algo.c \
@@ -29,14 +30,13 @@ SRC = push_swap_utils.c \
 	  algo_cost.c \
 	  algo_cost_ab_utils.c \
 	  algo_do.c \
-	  push_swap.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIB_DIR_P = ft_printf_42
+LIB_DIR_P = printfok
 LIB_PATH_P = -L$(LIB_DIR_P)
 
-LIB_DIR_L = libft_git
+LIB_DIR_L = libftok
 LIB_PATH_L = -L$(LIB_DIR_L)
 
 all: $(NAME)

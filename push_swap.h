@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 17:17:47 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 10:41:56 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		*ft_sort(long *stack_a, int argc);
 int		ft_stack_sorted(long *stack_a, int argc);
 
 void	ft_algo_sort(long *stack_a, long *stack_b, int argc);
-void 	ft_sort_three(long *stack_a, long *stack_b, int argc);
+void 	ft_sort_three(long *stack_a, long *stack_b, int argc, int witch);
 void 	ft_push_min_a(long *stack_a, long *stack_b, int argc);
 void 	ft_sort_four(long *stack_a, long *stack_b, int argc);
 void 	ft_sort_five(long *stack_a, long *stack_b, int argc);
@@ -33,6 +33,7 @@ void 	ft_sort_five(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_max_b(long *stack_a, long *stack_b, int argc);
 long	*ft_find_indx_min_a(long *stack_a, long *stack_b, int argc);
+long	*ft_find_indx_min_b(long *stack_a, long *stack_b, int argc);
 
 char 	*ft_swap_ab(long *stack_a, long *stack_b, int inst);
 char 	*ft_swap_ss(long *stack_a, long *stack_b);

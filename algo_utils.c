@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:34:19 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 12:55:30 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 10:42:10 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,24 @@ long	*ft_find_indx_min_a(long *stack_a, long *stack_b, int argc)
 	{
 		if (*min > stack_a[i])
 			min = &stack_a[i];
+		i++;
+	}
+	return (min);
+}
+
+long	*ft_find_indx_min_b(long *stack_a, long *stack_b, int argc)
+{
+	long	*min;
+	int		i;
+	int 	size_b;
+
+	min = &stack_b[0];
+	i = 1;
+	size_b = ft_size(argc, &stack_a, &stack_b, 0);
+	while (i < size_b)
+	{
+		if (*min > stack_b[i])
+			min = &stack_b[i];
 		i++;
 	}
 	return (min);

@@ -41,3 +41,19 @@ et pour 4
 
 
 {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}
+
+
+
+// int ft_find_good_place_adown(long *stack_a, long *stack_b, int argc, long element)
+// {
+// 	int		size_a;
+// 	int		good_place;
+
+// 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
+// 	good_place = size_a;
+// 	if (stack_a[0] == element)
+// 		return (0);
+// 	while (good_place > size_a && element != stack_a[good_place])
+// 		good_place--;
+// 	return (good_place);
+// }

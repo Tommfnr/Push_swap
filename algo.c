@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:47:18 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 18:11:48 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:32:46 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ long	ft_find_min_cost(long **array_cost, int size_a)
 	int		j;
 	long	min_cost;
 
-	i = 1;
+	i = 0;
 	min_cost = array_cost[0][0];
 	while(i < size_a)
 	{
@@ -114,15 +114,15 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 		i++;
 	}
 	ptr_indx_max_nb = ft_find_indx_max_b(stack_a, stack_b, argc);
-	indx_max = ptr_indx_max_nb - stack_a;
+	indx_max = ptr_indx_max_nb - stack_b;
 	i = 0;
 	while (i < indx_max)
 	{
-		ft_rotate_ab(stack_a, stack_b, argc, 0);
+		ft_rotate_ab(stack_a, stack_b, argc, 1);
 		i++;
 	}
 	i = 0;
-	while (stack_b[0] != (long) INT_MAX + 1 && i < size_a)
+	while (stack_b[0] != (long) INT_MAX + 1 && i < argc)
 	{
 		ft_push_pa(stack_a, stack_b, argc);
 		i++;

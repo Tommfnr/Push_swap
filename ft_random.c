@@ -39,13 +39,13 @@ int main() {
     srand(time(NULL));
 
     // Taille de la liste à générer
-    int n = 3; // Taille de la liste (par exemple 100)
+    int n = 500; // Taille de la liste (par exemple 100)
     int random_numbers[n];
     int count = 0;
 
     // Générer la liste sans doublon
     while (count < n) {
-        int num = rand() % __INT_MAX__ + 1; // Nombres entre 1 et 1000
+        int num = rand() % 1000; // Nombres entre 1 et 1000
 
         // Vérifier si le nombre est déjà présent dans la liste
         if (!is_duplicate(num, random_numbers, count)) {
