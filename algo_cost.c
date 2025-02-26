@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 15:18:23 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:24:25 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_
 	{
 		array_cost[i] = malloc(4 * sizeof(long));
 		if (!array_cost[i])
+		{
+			free(array_cost);
 			return ;
+		}
 		array_cost[i][0] = ft_countc_aup_bup(stack_a, stack_b, argc, stack_a[i]);
 		array_cost[i][1] = ft_countc_aup_bdown(stack_a, stack_b, argc, stack_a[i]);
 		array_cost[i][2] = ft_countc_adown_bup(stack_a, stack_b, argc, stack_a[i]);
@@ -45,12 +48,14 @@ void	ft_free_array(long *stack_a, long *stack_b, int argc, long **array_cost)
 	
 	i = 0;
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
-	while (i < size_a)
+	while (i < size_a + 1)
 	{
 		free(array_cost[i]);
 		i++;
+		printf("Libération\n");
 	}
 	free(array_cost);
+	printf("Libération de array_cost\n");
 }
 
 long	**ft_init_array_cost(long *stack_a, long *stack_b, int argc)

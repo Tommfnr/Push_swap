@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:47:18 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 11:32:46 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:22:34 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 	while (stack_a[0] != (long) INT_MAX + 1 && i < size_a)
 	{
 		array_cost = ft_init_array_cost(stack_a, stack_b, argc);
+		if (!array_cost)
+		{
+			// fprintf(stderr, "Erreur d'allocation de array_cost\n");
+			return ;
+		}
 		ft_processe_min_cost(stack_a, stack_b, argc, array_cost);
 		ft_free_array(stack_a, stack_b, argc, array_cost);
 		i++;
@@ -116,10 +121,21 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 	ptr_indx_max_nb = ft_find_indx_max_b(stack_a, stack_b, argc);
 	indx_max = ptr_indx_max_nb - stack_b;
 	i = 0;
-	while (i < indx_max)
+	if (argc / 2 < indx_max)
 	{
-		ft_rotate_ab(stack_a, stack_b, argc, 1);
-		i++;
+		while (i < (argc - indx_max))
+		{
+			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < indx_max)
+		{
+			ft_rotate_ab(stack_a, stack_b, argc, 1);
+			i++;
+		}
 	}
 	i = 0;
 	while (stack_b[0] != (long) INT_MAX + 1 && i < argc)

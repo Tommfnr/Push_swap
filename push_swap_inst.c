@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:49 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 13:16:31 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:13:59 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	*ft_push_pa(long *stack_a, long *stack_b, int argc)
             stack_b[i] = temp;
             i++;
         }
-        stack_b[size_b] = (long) INT_MAX + 1;
+        stack_b[size_b - 1] = (long) INT_MAX + 1;
         ft_printf("pa\n");
         return ("pa");
     }
@@ -111,15 +111,12 @@ char	*ft_push_pb(long *stack_a, long *stack_b, int argc)
     {
         size_b = ft_size(argc, &stack_a, &stack_b, 1);
         size_a = ft_size(argc, &stack_a, &stack_b, 0);
-        if (size_b > 0)
+        while (i < size_b)
         {
-            while (i < size_b)
-            {
-                temp = stack_b[size_b - 1];
-                stack_b[size_b - 1] = stack_b[size_b];
-                stack_b[size_b] = temp;
-                size_b--;
-            }
+            temp = stack_b[size_b - 1];
+            stack_b[size_b - 1] = stack_b[size_b];
+            stack_b[size_b] = temp;
+            size_b--;
         }
         stack_b[0] = stack_a[0];
         stack_a[0] = (long) INT_MAX + 1;
@@ -164,7 +161,7 @@ char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
     {
         size_b = ft_size(argc, &stack_a, &stack_b, 1);
         temp = stack_b[0];
-        while (i < size_b)
+        while (i < size_b - 1)
         {
             stack_b[i] = stack_b[i + 1];
             i++;
