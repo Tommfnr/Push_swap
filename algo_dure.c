@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:16:14 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 12:53:08 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/26 15:51:32 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void ft_sort_three(long *stack_a, long *stack_b, int argc, int witch)
 	}
 	else
 	{
-		ptr_indx_max_nb = ft_find_indx_max_b(stack_a, stack_b, argc);
+		ptr_indx_max_nb = ft_find_indx_min_b(stack_a, stack_b, argc);
 		indx_max = ptr_indx_max_nb - stack_b;
 		if (indx_max == 0)
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
-		else if (indx_max == 1)
 			ft_rotate_ab(stack_a, stack_b, argc, 1);
+		else if (indx_max == 1)
+			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
 		if (stack_b[0] < stack_b[1])
 			ft_swap_ab(stack_a, stack_b, 1);
 	}	
