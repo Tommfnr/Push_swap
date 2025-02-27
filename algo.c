@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:47:18 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 16:51:29 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:10:49 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ long	ft_find_min_cost(long **array_cost, int size_a)
 
 	i = 0;
 	min_cost = array_cost[0][0];
-	while(i < size_a)
+	while (i < size_a)
 	{
 		j = 0;
 		while (j < 4)
@@ -31,14 +31,14 @@ long	ft_find_min_cost(long **array_cost, int size_a)
 		}
 		i++;
 	}
-	return (min_cost);	
+	return (min_cost);
 }
 
 int	ft_col_min_cost(long **array_cost, int size_a, int element)
 {
-	int		i;
-	int		j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (i < size_a)
 	{
@@ -56,9 +56,9 @@ int	ft_col_min_cost(long **array_cost, int size_a, int element)
 
 int	ft_line_min_cost(long **array_cost, int size_a, int element)
 {
-	int		i;
-	int		j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	while (i < size_a)
 	{
@@ -74,12 +74,13 @@ int	ft_line_min_cost(long **array_cost, int size_a, int element)
 	return (-1);
 }
 
-void	ft_processe_min_cost(long *stack_a, long *stack_b, int argc, long **array_cost)
+void	ft_processe_min_cost(long *stack_a, long *stack_b, int argc,
+		long **array_cost)
 {
-	int		size_a;
-	int		min_cost;
-	int		lin;
-	int		col;
+	int	size_a;
+	int	min_cost;
+	int	lin;
+	int	col;
 
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	min_cost = ft_find_min_cost(array_cost, size_a);
@@ -100,13 +101,13 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 {
 	int		size_a;
 	int		i;
-	long 	**array_cost;
+	long	**array_cost;
 	long	*ptr_indx_max_nb;
 	int		indx_max;
 
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	i = 0;
-	while (stack_a[0] != (long) INT_MAX + 1 && i < size_a)
+	while (stack_a[0] != (long)INT_MAX + 1 && i < size_a)
 	{
 		array_cost = ft_init_array_cost(stack_a, stack_b, argc);
 		if (!array_cost)
@@ -135,7 +136,7 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 		}
 	}
 	i = 0;
-	while (stack_b[0] != (long) INT_MAX + 1 && i < argc)
+	while (stack_b[0] != (long)INT_MAX + 1 && i < argc)
 	{
 		ft_push_pa(stack_a, stack_b, argc);
 		i++;

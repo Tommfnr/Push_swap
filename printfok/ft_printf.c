@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:37:38 by tfournie          #+#    #+#             */
-/*   Updated: 2025/01/29 16:33:23 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:39:45 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_putchar(char c)
 {
-	// -1
 	return (write(1, &c, 1));
 }
 
@@ -52,7 +51,7 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])// tester les convertions
+		if (format[i] == '%' && format[i + 1])
 		{
 			printed += handle_conversion(format[i + 1], args);
 			i++;
@@ -64,24 +63,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (printed);
 }
-
-//a corriger;
-
-// int main(void)
-// {
-//     int nbchars;
-//     int print_nbchars;
-// 	int	*p;
-
-// 	p = NULL;
-//     // Test with simple string
-// 	printf("ft : \n");
-//     nbchars = ft_printf("%");
-// 	printf("\n");
-// 	printf("printf :\n");
-//     print_nbchars = printf("%");
-//     printf("\n%d", nbchars);
-//     printf("\n%d", print_nbchars);
-
-//     return 0;
-// }

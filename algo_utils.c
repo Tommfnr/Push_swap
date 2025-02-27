@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 17:34:19 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 10:42:10 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:46:04 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc)
 {
 	long	*max;
-	int			i;
-	int 		size_a;
+	int		i;
+	int		size_a;
 
 	max = &stack_a[0];
 	i = 1;
@@ -33,8 +33,8 @@ long	*ft_find_indx_max_a(long *stack_a, long *stack_b, int argc)
 long	*ft_find_indx_max_b(long *stack_a, long *stack_b, int argc)
 {
 	long	*max;
-	int			i;
-	int 		size_b;
+	int		i;
+	int		size_b;
 
 	max = &stack_b[0];
 	i = 1;
@@ -52,7 +52,7 @@ long	*ft_find_indx_min_a(long *stack_a, long *stack_b, int argc)
 {
 	long	*min;
 	int		i;
-	int 	size_a;
+	int		size_a;
 
 	min = &stack_a[0];
 	i = 1;
@@ -70,7 +70,7 @@ long	*ft_find_indx_min_b(long *stack_a, long *stack_b, int argc)
 {
 	long	*min;
 	int		i;
-	int 	size_b;
+	int		size_b;
 
 	min = &stack_b[0];
 	i = 1;

@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:16:14 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 19:01:27 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:14:27 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_algo_sort(long *stack_a, long *stack_b, int argc)
 {
-	int size_a;
+	int	size_a;
 
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	if (ft_stack_sorted(stack_a, argc) == 0)
@@ -38,7 +38,7 @@ void	ft_algo_sort(long *stack_a, long *stack_b, int argc)
 	}
 }
 
-void ft_sort_three(long *stack_a, long *stack_b, int argc, int witch)
+void	ft_sort_three(long *stack_a, long *stack_b, int argc, int witch)
 {
 	long	*ptr_indx_max_nb;
 	long	indx_max;
@@ -64,10 +64,10 @@ void ft_sort_three(long *stack_a, long *stack_b, int argc, int witch)
 			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
 		if (stack_b[0] < stack_b[1])
 			ft_swap_ab(stack_a, stack_b, 1);
-	}	
+	}
 }
 
-void ft_push_min_a(long *stack_a, long *stack_b, int argc)
+void	ft_push_min_a(long *stack_a, long *stack_b, int argc)
 {
 	long	*ptr_indx_min_nb;
 	long	indx_min;
@@ -76,30 +76,24 @@ void ft_push_min_a(long *stack_a, long *stack_b, int argc)
 
 	ptr_indx_min_nb = ft_find_indx_min_a(stack_a, stack_b, argc);
 	indx_min = ptr_indx_min_nb - stack_a;
-	i = 0;
+	i = -1;
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	if (argc / 2 < indx_min)
 	{
-		while (i < (size_a - indx_min))
-		{
+		while (++i < (size_a - indx_min))
 			ft_reverse_rotate_ab(stack_a, stack_b, argc, 0);
-			i++;
-		}
 	}
 	else
 	{
-		while (i < indx_min)
-		{
+		while (++i < indx_min)
 			ft_rotate_ab(stack_a, stack_b, argc, 0);
-			i++;
-		}
 	}
 	ft_push_pb(stack_a, stack_b, argc);
 }
 
-void ft_sort_four(long *stack_a, long *stack_b, int argc)
+void	ft_sort_four(long *stack_a, long *stack_b, int argc)
 {
-	int		size_a;
+	int	size_a;
 
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	if (ft_stack_sorted(stack_a, argc) == 1)
@@ -112,7 +106,7 @@ void ft_sort_four(long *stack_a, long *stack_b, int argc)
 	}
 }
 
-void ft_sort_five(long *stack_a, long *stack_b, int argc)
+void	ft_sort_five(long *stack_a, long *stack_b, int argc)
 {
 	ft_push_min_a(stack_a, stack_b, argc);
 	ft_push_min_a(stack_a, stack_b, argc);

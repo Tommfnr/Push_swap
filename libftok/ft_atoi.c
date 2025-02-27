@@ -6,11 +6,29 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:31:05 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 16:46:28 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:36:07 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_skip_whitespace_and_sign(const char *nptr, int *sign)
+{
+	int	i;
+
+	i = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+		i++;
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			*sign = -1;
+		else
+			*sign = 1;
+		i++;
+	}
+	return (i);
+}
 
 long	ft_atoi(const char *nptr)
 {
@@ -18,21 +36,11 @@ long	ft_atoi(const char *nptr)
 	int			sign;
 	long long	res;
 
-	i = 0;
-	res = 0;
 	sign = 1;
-	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-    if (!ft_isdigit(nptr[i]))
-    {
-        return ((long)INT_MAX + 1);
-    }
+	i = ft_skip_whitespace_and_sign(nptr, &sign);
+	res = 0;
+	if (!ft_isdigit(nptr[i]))
+		return ((long)INT_MAX + 1);
 	while (nptr[i] && ft_isdigit(nptr[i]))
 	{
 		res = res * 10 + (nptr[i] - '0');
@@ -42,9 +50,7 @@ long	ft_atoi(const char *nptr)
 			return ((long)INT_MIN - 1);
 		i++;
 	}
-    if (nptr[i] != '\0')
-    {
-        return ((long)INT_MAX + 1);
-    }
+	if (nptr[i] != '\0')
+		return ((long)INT_MAX + 1);
 	return ((int)(res * sign));
 }

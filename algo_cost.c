@@ -6,21 +6,25 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 19:23:56 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:17:28 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <unistd.h>
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_cost)
+static void ft_free_all(long *stack_a, long *stack_b, long **array_cost)
 {
-	int		i;
-	int		size_a;
+	free(array_cost);
+	free(stack_a);
+	free(stack_b);
+	exit(EXIT_FAILURE);
+}
+
+void	ft_count_cost_element(long *stack_a, long *stack_b, int argc,
+		long **array_cost)
+{
+	int	i;
+	int	size_a;
 
 	i = 0;
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
@@ -28,16 +32,15 @@ void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_
 	{
 		array_cost[i] = malloc(4 * sizeof(long));
 		if (!array_cost[i])
-		{
-			free(array_cost);
-			free(stack_a);
-			free(stack_b);
-			exit(EXIT_FAILURE);
-		}
-		array_cost[i][0] = ft_countc_aup_bup(stack_a, stack_b, argc, stack_a[i]);
-		array_cost[i][1] = ft_countc_aup_bdown(stack_a, stack_b, argc, stack_a[i]);
-		array_cost[i][2] = ft_countc_adown_bup(stack_a, stack_b, argc, stack_a[i]);
-		array_cost[i][3] = ft_countc_adown_bdown(stack_a, stack_b, argc, stack_a[i]);
+			ft_free_all(stack_a, stack_b, array_cost);
+		array_cost[i][0] = ft_countc_aup_bup(stack_a, stack_b, argc,
+				stack_a[i]);
+		array_cost[i][1] = ft_countc_aup_bdown(stack_a, stack_b, argc,
+				stack_a[i]);
+		array_cost[i][2] = ft_countc_adown_bup(stack_a, stack_b, argc,
+				stack_a[i]);
+		array_cost[i][3] = ft_countc_adown_bdown(stack_a, stack_b, argc,
+				stack_a[i]);
 		i++;
 	}
 	return ;
@@ -45,9 +48,9 @@ void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_
 
 void	ft_free_array(long *stack_a, long *stack_b, int argc, long **array_cost)
 {
-	int		i;
-	int		size_a;
-	
+	int	i;
+	int	size_a;
+
 	i = 0;
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	while (i < size_a + 1)
@@ -68,5 +71,5 @@ long	**ft_init_array_cost(long *stack_a, long *stack_b, int argc)
 	if (!array_cost)
 		return (0);
 	ft_count_cost_element(stack_a, stack_b, argc, array_cost);
-	return(array_cost);
+	return (array_cost);
 }

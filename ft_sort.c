@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:49:28 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 15:27:01 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:47:07 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,43 @@
 
 int	*ft_sort(long *stack_a, int argc)
 {
-    int i;
-    int j;
-    int min_index;
-    int temp;
+	int	i;
+	int	j;
+	int	min_index;
+	int	temp;
 
 	i = 0;
-    while (i < argc - 1)
+	while (i < argc - 1)
 	{
-        min_index = i;
-        j = i + 1;
-        while (j < argc) 
+		min_index = i;
+		j = i + 1;
+		while (j < argc)
 		{
-            if (stack_a[j] < stack_a[min_index]) 
-                min_index = j;
-            j++;
-        }
-        if (min_index != i)
+			if (stack_a[j] < stack_a[min_index])
+				min_index = j;
+			j++;
+		}
+		if (min_index != i)
 		{
-            temp = stack_a[i];
-            stack_a[i] = stack_a[min_index];
-            stack_a[min_index] = temp;
-        }
-        i++;
-    }
+			temp = stack_a[i];
+			stack_a[i] = stack_a[min_index];
+			stack_a[min_index] = temp;
+		}
+		i++;
+	}
 	return (0);
 }
 
-int		ft_stack_sorted(long *stack_a, int argc)
+int	ft_stack_sorted(long *stack_a, int argc)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (i < argc - 1)
 	{
 		if (stack_a[i] > stack_a[i + 1])
-		{
-			// printf("ce n'est pas trier prout\n");
 			return (0);
-		}
 		i++;
 	}
-	// printf("trier\n");
 	return (1);
 }

@@ -6,23 +6,22 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:34:02 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/25 17:23:24 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:11:02 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <unistd.h>
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int  ft_countc_aup_bup(long *stack_a, long *stack_b, int argc, long element)
+int	ft_countc_aup_bup(long *stack_a, long *stack_b, int argc, long element)
 {
-	int		cost;
-	int		size_a;
-	int		good_place;
-	
+	int	cost;
+	int	size_a;
+	int	good_place;
+
 	cost = 0;
 	good_place = ft_find_good_place_bup(stack_a, stack_b, argc, element);
 	if (element != stack_a[0])
@@ -40,13 +39,13 @@ int  ft_countc_aup_bup(long *stack_a, long *stack_b, int argc, long element)
 	return (cost);
 }
 
-int  ft_countc_aup_bdown(long *stack_a, long *stack_b, int argc, long element)
+int	ft_countc_aup_bdown(long *stack_a, long *stack_b, int argc, long element)
 {
-	int		cost;
-	int		size_b;
-	int		size_a;
-	int		good_place;
-	
+	int	cost;
+	int	size_b;
+	int	size_a;
+	int	good_place;
+
 	cost = 0;
 	size_b = ft_size(argc, &stack_a, &stack_b, 1);
 	good_place = (ft_find_good_place_bdown(stack_a, stack_b, argc, element));
@@ -63,13 +62,13 @@ int  ft_countc_aup_bdown(long *stack_a, long *stack_b, int argc, long element)
 	return (cost + good_place);
 }
 
-int  ft_countc_adown_bup(long *stack_a, long *stack_b, int argc, long element)
+int	ft_countc_adown_bup(long *stack_a, long *stack_b, int argc, long element)
 {
-	int		cost;
-	int		size_b;
-	int		size_a;
-	int		good_place;
-	
+	int	cost;
+	int	size_b;
+	int	size_a;
+	int	good_place;
+
 	cost = 0;
 	size_b = ft_size(argc, &stack_a, &stack_b, 1);
 	good_place = (ft_find_good_place_bup(stack_a, stack_b, argc, element));
@@ -86,12 +85,12 @@ int  ft_countc_adown_bup(long *stack_a, long *stack_b, int argc, long element)
 	return ((size_a - cost) + good_place);
 }
 
-int  ft_countc_adown_bdown(long *stack_a, long *stack_b, int argc, long element)
+int	ft_countc_adown_bdown(long *stack_a, long *stack_b, int argc, long element)
 {
-	int		cost;
-	int		size_a;
-	int		good_place;
-	
+	int	cost;
+	int	size_a;
+	int	good_place;
+
 	cost = 0;
 	good_place = ft_find_good_place_bdown(stack_a, stack_b, argc, element);
 	if (element != stack_a[0])
@@ -110,12 +109,14 @@ int  ft_countc_adown_bdown(long *stack_a, long *stack_b, int argc, long element)
 	return (cost);
 }
 
-//tester
+// tester
 
 /* int main ()
 {
-	long	stack_a[] = {2, 8, 5, 10, 1, (long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1};
-	long	stack_b[] = {3, 9, 7, 6, 4, (long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1};
+	long	stack_a[] = {2, 8, 5, 10, 1, (long) INT_MAX + 1, (long) INT_MAX + 1,
+			(long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1};
+	long	stack_b[] = {3, 9, 7, 6, 4, (long) INT_MAX + 1, (long) INT_MAX + 1,
+			(long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1};
 	int 	argc = 10;
 	int		i = 3;
 
