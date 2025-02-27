@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 19:20:12 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:23:56 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_count_cost_element(long *stack_a, long *stack_b, int argc, long **array_
 	size_a = ft_size(argc, &stack_a, &stack_b, 0);
 	while (i < size_a)
 	{
-		array_cost[i] = NULL;//malloc(4 * sizeof(long));
+		array_cost[i] = malloc(4 * sizeof(long));
 		if (!array_cost[i])
 		{
 			free(array_cost);
