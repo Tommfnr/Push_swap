@@ -45,7 +45,7 @@ int main() {
 
     // Générer la liste sans doublon
     while (count < n) {
-        int num = rand() % 1000; // Nombres entre 1 et 1000
+        int num = rand() % 2000 - 1000; // Nombres entre 1 et 1000
 
         // Vérifier si le nombre est déjà présent dans la liste
         if (!is_duplicate(num, random_numbers, count)) {

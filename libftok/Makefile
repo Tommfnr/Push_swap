@@ -6,17 +6,19 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/29 17:27:21 by tomm              #+#    #+#              #
-#    Updated: 2025/02/19 13:15:28 by tfournie         ###   ########.fr        #
+#    Updated: 2025/02/27 17:34:41 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -c
+CFLAGS = -Wall -Werror -Wextra
 
 NAME = libft.a
 
 RM = rm -f
+
+MAKEFLAGS += --no-print-directory
 
 FUNCTIONS = ft_atoi.c \
             ft_bzero.c \
@@ -60,7 +62,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-%.o : %.c Makefile
+%.o : %.c Makefile libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :

@@ -6,17 +6,17 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/26 14:00:00 by tfournie         ###   ########.fr        #
+#    Updated: 2025/02/27 17:37:44 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g -I./printfok -I./libftok
 
 NAME = push_swap
 
-# MAIN = push_swap.c
+MAKEFLAGS += --no-print-directory
 
 SRC = push_swap.c \
 	  push_swap_utils.c \
@@ -43,9 +43,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(LIB_DIR_P)/libftprintf.a $(LIB_DIR_L)/libft.a Makefile
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB_PATH_P) -lftprintf $(LIB_PATH_L) -lft
-	echo "$(NAME) created!"
 
-%.o: %.c push_swap.h
+%.o: %.c Makefile push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIB_DIR_P)/libftprintf.a: FORCE
@@ -58,13 +57,11 @@ clean:
 	rm -f $(OBJ)
 	rm -f $(LIB_DIR_P)/*.o
 	rm -f $(LIB_DIR_L)/*.o
-	echo "Object files cleaned!"
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(LIB_DIR_P)/libftprintf.a
 	rm -f $(LIB_DIR_L)/libft.a
-	echo "$(NAME) removed!"
 
 FORCE:
 

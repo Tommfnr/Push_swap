@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:16:14 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 15:51:32 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 19:01:27 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,28 @@ void ft_push_min_a(long *stack_a, long *stack_b, int argc)
 {
 	long	*ptr_indx_min_nb;
 	long	indx_min;
+	int		i;
+	int		size_a;
 
 	ptr_indx_min_nb = ft_find_indx_min_a(stack_a, stack_b, argc);
 	indx_min = ptr_indx_min_nb - stack_a;
-	while (indx_min > 0)
+	i = 0;
+	size_a = ft_size(argc, &stack_a, &stack_b, 0);
+	if (argc / 2 < indx_min)
 	{
-		ft_rotate_ab(stack_a, stack_b, argc, 0);
-		indx_min--;
+		while (i < (size_a - indx_min))
+		{
+			ft_reverse_rotate_ab(stack_a, stack_b, argc, 0);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < indx_min)
+		{
+			ft_rotate_ab(stack_a, stack_b, argc, 0);
+			i++;
+		}
 	}
 	ft_push_pb(stack_a, stack_b, argc);
 }

@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:33:04 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/19 14:45:56 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:31:00 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,18 @@ char	*ft_check_error(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	if (argc <= 1)
-		return (NULL);
 	while (i < argc)
 	{
 		if (ft_isnumber(argv[i]) == 0)
 		{
-			ft_printf("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			return (NULL);
 		}
 		i++;
 	}
 	if (ft_check_doublon(argc, argv) == 0)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		return (NULL);
 	}
 	return ("valid");

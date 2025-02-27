@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:31:05 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/19 14:37:23 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:46:28 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ long	ft_atoi(const char *nptr)
 			sign = -1;
 		i++;
 	}
+    if (!ft_isdigit(nptr[i]))
+    {
+        return ((long)INT_MAX + 1);
+    }
 	while (nptr[i] && ft_isdigit(nptr[i]))
 	{
 		res = res * 10 + (nptr[i] - '0');
@@ -38,5 +42,9 @@ long	ft_atoi(const char *nptr)
 			return ((long)INT_MIN - 1);
 		i++;
 	}
+    if (nptr[i] != '\0')
+    {
+        return ((long)INT_MAX + 1);
+    }
 	return ((int)(res * sign));
 }

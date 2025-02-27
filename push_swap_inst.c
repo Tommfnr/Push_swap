@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:49 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 17:13:59 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:58:52 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
     int         size_b;
     
     i = 0;
-    if (inst == 0 && stack_a && stack_a[1] != 0)
+    if (inst == 0 && stack_a && stack_a[1] != (long) INT_MAX + 1)
     {
         size_a = ft_size(argc, &stack_a, &stack_b, 0);
         temp = stack_a[0];
@@ -157,7 +157,7 @@ char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
         ft_printf("ra\n");
         return ("ra");
     }
-    if (inst == 1 && stack_b && stack_b[1] != 0)
+    if (inst == 1 && stack_b && stack_b[1] != (long) INT_MAX + 1)
     {
         size_b = ft_size(argc, &stack_a, &stack_b, 1);
         temp = stack_b[0];
@@ -183,7 +183,7 @@ char    *ft_rotate_rr(long *stack_a, long *stack_b, int argc)
     i = 0;
     size_a = ft_size(argc, &stack_a, &stack_b, 0);
     size_b = ft_size(argc, &stack_a, &stack_b, 1);
-    if (stack_a && stack_a[1] != 0 && stack_b && stack_b[1] != 0)
+    if (stack_a && stack_a[1] != (long) INT_MAX + 1 && stack_b && stack_b[1] != (long) INT_MAX + 1)
     {
         temp = stack_a[0];
         while (i < size_a)
@@ -216,7 +216,7 @@ char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)// 0
     
     size_a = ft_size(argc, &stack_a, &stack_b, 0);
     size_b = ft_size(argc, &stack_a, &stack_b, 1);
-    if (inst == 0 && stack_a && stack_a[1] != 0)
+    if (inst == 0 && stack_a && stack_a[1] != (long) INT_MAX + 1)
     {
         i = size_a - 1;
         temp = stack_a[size_a - 1];
@@ -229,7 +229,7 @@ char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)// 0
         ft_printf("rra\n");
         return ("rra");
     }
-    if (inst == 1 && stack_b && stack_b[1] != 0)
+    if (inst == 1 && stack_b && stack_b[1] != (long) INT_MAX + 1)
     {
         i = size_b - 1;
         temp = stack_b[size_b - 1];
@@ -254,7 +254,7 @@ char	*ft_reverse_rotate_rrr(long *stack_a, long *stack_b, int argc)
     
     size_a = ft_size(argc, &stack_a, &stack_b, 0);
     size_b = ft_size(argc, &stack_a, &stack_b, 1);
-    if (stack_a && stack_a[1] != 0 && stack_b && stack_b[1] != 0)
+    if (stack_a && stack_a[1] != (long) INT_MAX + 1 && stack_b && stack_b[1] != (long) INT_MAX + 1)
     {
         i = size_a - 1;
         temp = stack_a[size_a - 1];

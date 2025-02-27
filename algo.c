@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:47:18 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/26 18:22:34 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:51:29 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,7 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 	{
 		array_cost = ft_init_array_cost(stack_a, stack_b, argc);
 		if (!array_cost)
-		{
-			// fprintf(stderr, "Erreur d'allocation de array_cost\n");
 			return ;
-		}
 		ft_processe_min_cost(stack_a, stack_b, argc, array_cost);
 		ft_free_array(stack_a, stack_b, argc, array_cost);
 		i++;
