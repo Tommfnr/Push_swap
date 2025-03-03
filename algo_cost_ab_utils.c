@@ -6,15 +6,11 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:36:54 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 20:11:05 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 14:23:27 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 long	ft_find_max_b(long *stack_a, long *stack_b, int argc)
 {

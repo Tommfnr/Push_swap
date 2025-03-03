@@ -6,15 +6,11 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:34:02 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 20:11:02 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 14:24:00 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int	ft_countc_aup_bup(long *stack_a, long *stack_b, int argc, long element)
 {
@@ -108,21 +104,3 @@ int	ft_countc_adown_bdown(long *stack_a, long *stack_b, int argc, long element)
 		return (cost);
 	return (cost);
 }
-
-// tester
-
-/* int main ()
-{
-	long	stack_a[] = {2, 8, 5, 10, 1, (long) INT_MAX + 1, (long) INT_MAX + 1,
-			(long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1};
-	long	stack_b[] = {3, 9, 7, 6, 4, (long) INT_MAX + 1, (long) INT_MAX + 1,
-			(long) INT_MAX + 1, (long) INT_MAX + 1, (long) INT_MAX + 1};
-	int 	argc = 10;
-	int		i = 3;
-
-	printf("%d\n", ft_countc_aup_bup(stack_a, stack_b, argc, i));
-	printf("%d\n", ft_countc_aup_bdown(stack_a, stack_b, argc, i));
-	printf("%d\n", ft_countc_adown_bup(stack_a, stack_b, argc, i));
-	printf("%d\n", ft_countc_adown_bdown(stack_a, stack_b, argc, i));
-	return (0);
-} */
