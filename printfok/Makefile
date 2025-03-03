@@ -6,11 +6,11 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 14:41:46 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/27 17:37:33 by tfournie         ###   ########.fr        #
+#    Updated: 2025/03/03 14:30:14 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
