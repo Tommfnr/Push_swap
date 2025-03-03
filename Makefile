@@ -6,7 +6,7 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/03/03 14:13:33 by tfournie         ###   ########.fr        #
+#    Updated: 2025/03/03 17:42:53 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC = push_swap.c \
 	  push_swap_inst_s.c \
 	  error_check.c \
 	  algo.c \
-	  algo_dure.c \
+	  algo_hard.c \
 	  algo_utils.c \
 	  ft_sort.c \
 	  algo_cost_ab.c \

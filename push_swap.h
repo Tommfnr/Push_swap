@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/03/03 14:22:31 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:38:56 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst);
 char	*ft_reverse_rotate_rrr(long *stack_a, long *stack_b, int argc);
 
 char	*ft_check_error(int argc, char **argv);
-int		ft_check_doublon(int argc, char **argv);
+int		ft_check_duplicate(int argc, char **argv);
 int		ft_isnumber(const char *str);
 int		ft_size(int argc, long **stack_a, long **stack_b, int witch);
 int		ft_init_stack(int argc, char **argv, long **stack_a, long **stack_b);

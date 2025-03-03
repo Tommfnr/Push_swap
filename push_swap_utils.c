@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:44 by tfournie          #+#    #+#             */
-/*   Updated: 2025/03/03 11:37:49 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:32:39 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_init_stack(int argc, char **argv, long **stack_a, long **stack_b)
 	*stack_b = malloc((argc) * sizeof(long));
 	if (!*stack_b)
 	{
-		free(stack_a);
+		free(*stack_a);
 		return (-1);
 	}
 	while (i < argc)
