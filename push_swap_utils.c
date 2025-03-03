@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 18:58:44 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 20:10:34 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:37:49 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,19 @@ int	ft_size(int argc, long **stack_a, long **stack_b, int witch)
 	int		i;
 
 	size = 0;
-	i = 0;
+	i = -1;
 	if (witch == 0)
 	{
-		while (i < argc)
-		{
+		while (++i < argc)
 			if ((*stack_a)[size] != (long)INT_MAX + 1)
 				size++;
-			i++;
-		}
 		return (size);
 	}
 	if (witch == 1)
 	{
-		while (i < argc)
-		{
+		while (++i < argc)
 			if ((*stack_b)[size] != (long)INT_MAX + 1)
 				size++;
-			i++;
-		}
 		return (size);
 	}
 	return (-1);

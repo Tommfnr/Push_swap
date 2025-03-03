@@ -6,13 +6,13 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 20:17:28 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:27:30 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void ft_free_all(long *stack_a, long *stack_b, long **array_cost)
+static void	ft_free_all(long *stack_a, long *stack_b, long **array_cost)
 {
 	free(array_cost);
 	free(stack_a);

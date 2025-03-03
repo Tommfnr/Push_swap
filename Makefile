@@ -6,7 +6,7 @@
 #    By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/13 18:58:53 by tfournie          #+#    #+#              #
-#    Updated: 2025/02/27 17:37:44 by tfournie         ###   ########.fr        #
+#    Updated: 2025/03/03 14:13:33 by tfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ MAKEFLAGS += --no-print-directory
 
 SRC = push_swap.c \
 	  push_swap_utils.c \
-	  push_swap_inst.c \
+	  push_swap_inst_p.c \
+	  push_swap_inst_r.c \
+	  push_swap_inst_rr.c \
+	  push_swap_inst_s.c \
 	  error_check.c \
 	  algo.c \
 	  algo_dure.c \
@@ -28,6 +31,7 @@ SRC = push_swap.c \
 	  ft_sort.c \
 	  algo_cost_ab.c \
 	  algo_cost.c \
+	  algo_find_cost.c \
 	  algo_cost_ab_utils.c \
 	  algo_do.c \
 

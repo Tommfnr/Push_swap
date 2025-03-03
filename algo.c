@@ -6,73 +6,11 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:47:18 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 20:10:49 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:51:17 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-long	ft_find_min_cost(long **array_cost, int size_a)
-{
-	int		i;
-	int		j;
-	long	min_cost;
-
-	i = 0;
-	min_cost = array_cost[0][0];
-	while (i < size_a)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (min_cost > array_cost[i][j])
-				min_cost = array_cost[i][j];
-			j++;
-		}
-		i++;
-	}
-	return (min_cost);
-}
-
-int	ft_col_min_cost(long **array_cost, int size_a, int element)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size_a)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (array_cost[i][j] == element)
-				return (j);
-			j++;
-		}
-		i++;
-	}
-	return (-1);
-}
-
-int	ft_line_min_cost(long **array_cost, int size_a, int element)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size_a)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (array_cost[i][j] == element)
-				return (i);
-			j++;
-		}
-		i++;
-	}
-	return (-1);
-}
 
 void	ft_processe_min_cost(long *stack_a, long *stack_b, int argc,
 		long **array_cost)
@@ -97,6 +35,27 @@ void	ft_processe_min_cost(long *stack_a, long *stack_b, int argc,
 	ft_push_pb(stack_a, stack_b, argc);
 }
 
+static void	ft_exe_algo_final(long *stack_a, long *stack_b, int argc,
+		int indx_max)
+{
+	int	i;
+
+	i = -1;
+	if (argc / 2 < indx_max)
+	{
+		while (++i < (argc - indx_max))
+			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
+	}
+	else
+	{
+		while (++i < indx_max)
+			ft_rotate_ab(stack_a, stack_b, argc, 1);
+	}
+	i = -1;
+	while (stack_b[0] != (long)INT_MAX + 1 && ++i < argc)
+		ft_push_pa(stack_a, stack_b, argc);
+}
+
 void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 {
 	int		size_a;
@@ -118,27 +77,5 @@ void	ft_exe_algo(long *stack_a, long *stack_b, int argc)
 	}
 	ptr_indx_max_nb = ft_find_indx_max_b(stack_a, stack_b, argc);
 	indx_max = ptr_indx_max_nb - stack_b;
-	i = 0;
-	if (argc / 2 < indx_max)
-	{
-		while (i < (argc - indx_max))
-		{
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < indx_max)
-		{
-			ft_rotate_ab(stack_a, stack_b, argc, 1);
-			i++;
-		}
-	}
-	i = 0;
-	while (stack_b[0] != (long)INT_MAX + 1 && i < argc)
-	{
-		ft_push_pa(stack_a, stack_b, argc);
-		i++;
-	}
+	ft_exe_algo_final(stack_a, stack_b, argc, indx_max);
 }
