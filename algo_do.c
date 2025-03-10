@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:33:52 by tfournie          #+#    #+#             */
-/*   Updated: 2025/03/03 14:04:50 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:32:49 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void	ft_do_aup_bup(long *stack_a, long *stack_b, int argc, long element)
 		while (++i < nb_inst_bup)
 			ft_rotate_rr(stack_a, stack_b, argc);
 		while (i++ < nb_inst_aup)
-			ft_rotate_ab(stack_a, stack_b, argc, 0);
+			ft_rotate_a(stack_a, stack_b, argc);
 	}
 	else if (nb_inst_aup < nb_inst_bup)
 	{
 		while (++i < nb_inst_aup)
 			ft_rotate_rr(stack_a, stack_b, argc);
 		while (i++ < nb_inst_bup)
-			ft_rotate_ab(stack_a, stack_b, argc, 1);
+			ft_rotate_b(stack_a, stack_b, argc);
 	}
 	else
 		while (++i < nb_inst_aup)
@@ -51,13 +51,13 @@ void	ft_do_aup_bdown(long *stack_a, long *stack_b, int argc, long element)
 	i = 0;
 	while (i < nb_inst_aup)
 	{
-		ft_rotate_ab(stack_a, stack_b, argc, 0);
+		ft_rotate_a(stack_a, stack_b, argc);
 		i++;
 	}
 	i = 0;
 	while (i < nb_inst_bdown)
 	{
-		ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
+		ft_reverse_rotate_b(stack_a, stack_b, argc);
 		i++;
 	}
 }
@@ -73,13 +73,13 @@ void	ft_do_adown_bup(long *stack_a, long *stack_b, int argc, long element)
 	i = 0;
 	while (i < nb_inst_adown)
 	{
-		ft_reverse_rotate_ab(stack_a, stack_b, argc, 0);
+		ft_reverse_rotate_a(stack_a, stack_b, argc);
 		i++;
 	}
 	i = 0;
 	while (i < nb_inst_bup)
 	{
-		ft_rotate_ab(stack_a, stack_b, argc, 1);
+		ft_rotate_b(stack_a, stack_b, argc);
 		i++;
 	}
 }
@@ -98,14 +98,14 @@ void	ft_do_adown_bdown(long *stack_a, long *stack_b, int argc, long element)
 		while (++i < nb_inst_bdown)
 			ft_reverse_rotate_rrr(stack_a, stack_b, argc);
 		while (i++ < nb_inst_adown)
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 0);
+			ft_reverse_rotate_a(stack_a, stack_b, argc);
 	}
 	else if (nb_inst_adown < nb_inst_bdown)
 	{
 		while (++i < nb_inst_adown)
 			ft_reverse_rotate_rrr(stack_a, stack_b, argc);
 		while (i++ < nb_inst_bdown)
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
+			ft_reverse_rotate_b(stack_a, stack_b, argc);
 	}
 	else
 		while (++i < nb_inst_adown)

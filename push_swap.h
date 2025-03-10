@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:10:51 by tfournie          #+#    #+#             */
-/*   Updated: 2025/03/03 17:38:56 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:30:41 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ char	*ft_swap_ab(long *stack_a, long *stack_b, int inst);
 char	*ft_swap_ss(long *stack_a, long *stack_b);
 char	*ft_push_pa(long *stack_a, long *stack_b, int argc);
 char	*ft_push_pb(long *stack_a, long *stack_b, int argc);
-char	*ft_rotate_ab(long *stack_a, long *stack_b, int argc, int inst);
+char	*ft_rotate_a(long *stack_a, long *stack_b, int argc);
+char	*ft_rotate_b(long *stack_a, long *stack_b, int argc);
 char	*ft_rotate_rr(long *stack_a, long *stack_b, int argc);
-char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst);
+char	*ft_reverse_rotate_a(long *stack_a, long *stack_b, int argc);
+char	*ft_reverse_rotate_b(long *stack_a, long *stack_b, int argc);
 char	*ft_reverse_rotate_rrr(long *stack_a, long *stack_b, int argc);
 
 char	*ft_check_error(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 11:28:59 by tfournie          #+#    #+#             */
-/*   Updated: 2025/03/03 13:59:43 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:31:20 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,6 @@ char	*ft_reverse_rotate_b(long *stack_a, long *stack_b, int argc)
 		ft_printf("rrb\n");
 		return ("rrb");
 	}
-	return (NULL);
-}
-
-char	*ft_reverse_rotate_ab(long *stack_a, long *stack_b, int argc, int inst)
-{
-	if (inst == 0)
-		return (ft_reverse_rotate_a(stack_a, stack_b, argc));
-	if (inst == 1)
-		return (ft_reverse_rotate_b(stack_a, stack_b, argc));
 	return (NULL);
 }
 

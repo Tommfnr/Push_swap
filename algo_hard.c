@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_dure.c                                        :+:      :+:    :+:   */
+/*   algo_hard.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:16:14 by tfournie          #+#    #+#             */
-/*   Updated: 2025/02/27 20:14:27 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:32:13 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	ft_sort_three(long *stack_a, long *stack_b, int argc, int witch)
 		ptr_indx_max_nb = ft_find_indx_max_a(stack_a, stack_b, argc);
 		indx_max = ptr_indx_max_nb - stack_a;
 		if (indx_max == 0)
-			ft_rotate_ab(stack_a, stack_b, argc, 0);
+			ft_rotate_a(stack_a, stack_b, argc);
 		else if (indx_max == 1)
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 0);
+			ft_reverse_rotate_a(stack_a, stack_b, argc);
 		if (stack_a[0] > stack_a[1])
 			ft_swap_ab(stack_a, stack_b, 0);
 	}
@@ -59,9 +59,9 @@ void	ft_sort_three(long *stack_a, long *stack_b, int argc, int witch)
 		ptr_indx_max_nb = ft_find_indx_min_b(stack_a, stack_b, argc);
 		indx_max = ptr_indx_max_nb - stack_b;
 		if (indx_max == 0)
-			ft_rotate_ab(stack_a, stack_b, argc, 1);
+			ft_rotate_b(stack_a, stack_b, argc);
 		else if (indx_max == 1)
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
+			ft_reverse_rotate_b(stack_a, stack_b, argc);
 		if (stack_b[0] < stack_b[1])
 			ft_swap_ab(stack_a, stack_b, 1);
 	}
@@ -81,12 +81,12 @@ void	ft_push_min_a(long *stack_a, long *stack_b, int argc)
 	if (argc / 2 < indx_min)
 	{
 		while (++i < (size_a - indx_min))
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 0);
+			ft_reverse_rotate_a(stack_a, stack_b, argc);
 	}
 	else
 	{
 		while (++i < indx_min)
-			ft_rotate_ab(stack_a, stack_b, argc, 0);
+			ft_rotate_a(stack_a, stack_b, argc);
 	}
 	ft_push_pb(stack_a, stack_b, argc);
 }

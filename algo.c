@@ -6,7 +6,7 @@
 /*   By: tfournie <tfournie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 14:47:18 by tfournie          #+#    #+#             */
-/*   Updated: 2025/03/03 11:51:17 by tfournie         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:52:30 by tfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ static void	ft_exe_algo_final(long *stack_a, long *stack_b, int argc,
 	if (argc / 2 < indx_max)
 	{
 		while (++i < (argc - indx_max))
-			ft_reverse_rotate_ab(stack_a, stack_b, argc, 1);
+			ft_reverse_rotate_b(stack_a, stack_b, argc);
 	}
 	else
 	{
 		while (++i < indx_max)
-			ft_rotate_ab(stack_a, stack_b, argc, 1);
+			ft_rotate_b(stack_a, stack_b, argc);
 	}
 	i = -1;
 	while (stack_b[0] != (long)INT_MAX + 1 && ++i < argc)
