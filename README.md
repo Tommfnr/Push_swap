@@ -86,7 +86,7 @@ pb
 ...
 ```
 
-Check the result with the checker:
+Check the result with the official checker (download `checker_linux` from the project page on the 42 intra and put it at the root):
 
 ```bash
 ARG="$(shuf -i 1-1000 -n 100 | tr '\n' ' ')"

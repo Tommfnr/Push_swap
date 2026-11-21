@@ -1,0 +1,10 @@
+# Build
+*.o
+push_swap
+a.out
+
+# 42 checker (download it from the project page)
+checker_linux
+
+# Editor
+.vscode/
